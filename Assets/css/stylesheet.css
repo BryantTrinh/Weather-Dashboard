@@ -18,3 +18,25 @@ h1 {
   font-size: 3em;
   margin: 1em 0;
 }
+
+hr {
+  height: 0;
+  box-sizing: content-box;
+  overflow:visible;
+}
+
+a {
+  background-color: transparent;
+}
+
+.weather-hr {
+  margin-left: 0.5rem;
+  width: 100%;
+}
+
+.weather-header{
+  background: rgb(1, 1, 106);
+}
+#form-heading {
+  margin: 0.5rem;
+}

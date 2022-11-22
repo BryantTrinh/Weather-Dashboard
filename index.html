@@ -13,7 +13,7 @@
   <header class="container-fluid text-center text-white bg-dark">
     <h1>Weather Dashboard</h1>
   </header>
-
+<!-- Search for a city -> search button, search form -->
   <div class="container-fluid" style="max-width: auto">
     <div class="row">
       <aside class="col-lg-3 pb-3">
@@ -21,21 +21,26 @@
         <form id="search-form" class="form">
           <div class="inline-form form-group">
             <div class="group-input">
-              <input class="form-input search-weather" type="text" id="search-input" placeholder="Huntington Beach" aria-labelledby="head-form" aria-controls="today forecast" />
+              <input class="form-input search-weather" type="text" id="search-input" placeholder="Los Angeles" aria-labelledby="head-form" aria-controls="today forecast" />
+
               <div class="group-input-append">
                 <button type="submit" class="btn search-btn" id="search-btn" aria-label="submit search">Search</button>
 
             <!-- need to create a break and show search history -->
-
-
+                <hr class="weather-hr"/>
               </div>
             </div>
           </div>
         </form>
-
-
-
+        <div class="group-list" id="recentHistory"></div>
       </aside>
+
+      <div class="col-lg-9 pb-3"></div>
+        <section id="today" class="margintop-3"></section>
+        <section id="forecast" class="row margintop-3"></section>
+      </div>
+    </div>
+  </div>
 
 
 

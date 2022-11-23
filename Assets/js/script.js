@@ -82,8 +82,48 @@ function renderCurrentWeather(city, weather) {
   cardBody.setAttribute('class', 'card-body');
   card.append(cardBody);
 
+  heading.setAttribute('class', 'h3 card-title');
+  temperatureEl.setAttribute('class', 'card-text');
+  windEl.setAttribute('class', 'card-text');
+  humidityEl.setAttribute('class', 'card-text');
 
 
+// use jquery? to set attributes
 
+  //WORK TO BE DONE/ CODE HERE
+  // heading, weatherIcons, tempEl, windEl, humidityEl, then combine them all into cardbody (append)
+  // 
 
+  cardBody.append(heading);
+// set markup contained in element
+  todayContainer.innerHTML = "";
+  todayContainer.append(card);
 }
+
+// create elements for cards
+
+var col = document.createElement('div');
+var card = document.createElement('div');
+var cardBody = document.createElement('div');
+var cardTitle = document.createElement('h5');
+var weatherIcon = document.createElement('img');
+var temperatureEl = document.createElement('p');
+var windEl = document.createElement('p');
+var humidityEl = document.createElement('p');
+
+col.append(card);
+card.append(cardBody);
+cardBody.append(weatherIcon, cardTitle, temperatureEl, windEl, humidityEl);
+
+// set attribute for columns, card, and elements. col-md for medium devices, so we need to go back into HTML and make a div with max-width. add 5 day card to column using classlist.add
+
+card.setAttribute('class', 'card bg-primary text-white');
+cardBody.setAttribute('class', 'card-body');
+cardTitle.setAttribute('class', 'card-title p-3');
+col.setAttribute('class', 'col-md');
+col.classList.add('five-day-card');
+temperatureEl.setAttribute('class', 'card-text');
+windEl.setAttribute('class', 'card-text');
+humidityEl.setAttribuate('class', 'card-text');
+
+

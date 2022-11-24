@@ -100,6 +100,55 @@ function renderCurrentWeather(city, weather) {
   todayContainer.append(card);
 }
 
+// Function to display forecast card from object in api
+
+function renderForecastCard(city, forecast) {
+  var iconUrl= 'https://openweathermap.org/img/w/${forecast.weather[0].icon}.png';
+  var iconDescription= forecast.weather[0].description;
+  var tempF = forecast.main.temp;
+  var humidity = forecast.main.humidity;
+  var windMph = forecast.wind.speed;
+
+// next we have to create element for our forecast card
+
+var col = document.createElement('div');
+var card = document.createElement('div');
+var cardBody = document.createElement('div');
+var cardTitle = document.createElement('h5');
+var weatherIcon = document.createElement('img');
+var temperatureEl = document.createElement('p');
+var windEl = document.createElement('p');
+var humidityEl = document.createElement('p');
+
+col.append(card);
+card.append(cardBody);
+cardBody.append(cardTitle, weatherIcon, temperatureEl, windEl, humidityEl);
+
+// set attributes
+
+col.setAttribute('class', 'col-md');
+col.classList.add('five-day-card');
+card.setAttribute('class', 'card bg-primary h-100 text-white');
+cardBody.setAttribute('class', 'card-body p-2');
+cardTitle.setAttribute('class', 'card-title');
+temperatureEl.setAttribute('class', 'card-text');
+windEl.setAttribute('class', 'card-text');
+humidityEl.setAttribute('class', 'card-text');
+
+// now we need to append content to these elements
+
+  cardTitle.textContent = dayjs(forecast.dt_txt).format('M/D/YYYY');
+  weatherIcon.setAttribute('src', iconUrl);
+  weatherIcon.setAttribute('alt', iconDescription);
+  tempEl.textContent = `Temp: ${tempF} °F`;
+  windEl.textContent = `Wind: ${windMph} MPH`;
+  humidityEl.textContent = `Humidity: ${humidity} %`;
+
+  forecastContainer.append(col);
+}
+
+
+
 // create elements for cards
 
 var col = document.createElement('div');
@@ -124,6 +173,16 @@ col.setAttribute('class', 'col-md');
 col.classList.add('five-day-card');
 temperatureEl.setAttribute('class', 'card-text');
 windEl.setAttribute('class', 'card-text');
-humidityEl.setAttribuate('class', 'card-text');
+humidityEl.setAttribute('class', 'card-text');
 
+// append content to elements
+
+cardTitle.textContent = dayjs(forecast.dt_txt).format('M/D/YYYY');
+  weatherIcon.setAttribute('alt', iconDescription);
+  tempEl.textContent = `Temp: ${tempF} °F`;
+  windEl.textContent = `Wind: ${windMph} MPH`;
+  humidityEl.textContent = `Humidity: ${humidity} %`;
+
+  forecastContainer.append(col);
+}
 
